@@ -3,116 +3,181 @@ import {
   Card,
   CardBody,
   ButtonGroup,
-  Button
+  Button,
+  Tooltip,
+  Chip,
 } from "@heroui/react";
 import { QuestionType, QuestionResponseType } from "../types/interview";
 import { Icon } from "@iconify/react";
-import { useTranslation } from 'react-i18next'; // أضف هذا إذا كنت ستستخدم t() هنا
+import { useTranslation } from "react-i18next";
 
-interface QuestionListProps {
+/* -------------------------------------------------- */
+/*                     QuestionList                   */
+/* -------------------------------------------------- */
+export interface QuestionListProps {
   questions: QuestionType[];
   responses: QuestionResponseType[];
-  onResponseChange: (questionId: string, answered: boolean, isCorrect?: boolean) => void;
+  onResponseChange: (
+    id: string,
+    answered: boolean,
+    isCorrect?: boolean
+  ) => void;
+  /** يُمرَّر في خطوة الاختبار فقط لعرض زرّ الحذف */
+  onDelete?: (id: string) => void;
 }
 
-export const QuestionList = ({
+export const QuestionList: React.FC<QuestionListProps> = ({
   questions,
   responses,
-  onResponseChange
-}: QuestionListProps) => {
-  const { t } = useTranslation(); // إذا كنت ستستخدمه
+  onResponseChange,
+  onDelete,
+}) => {
+  const { t } = useTranslation();
 
-  const getQuestionResponse = (questionId: string) => {
-    const response = responses.find(r => r.questionId === questionId);
-    return response || { questionId, answered: false, isCorrect: undefined };
-  };
+  /* ---------- helpers ---------- */
+  const getResp = (id: string) =>
+    responses.find((r) => r.questionId === id) ?? {
+      questionId: id,
+      answered: false,
+      isCorrect: undefined,
+    };
 
-  const getDifficultyColor = (level: string) => {
-    switch (level.toLowerCase()) {
-      case 'beginner level':
-        return 'text-success-500';
-      case 'intermediate level':
-        return 'text-warning-500';
-      case 'advanced level':
-        return 'text-danger-500';
+  const levelMeta = (lvl: string) => {
+    switch (lvl.toLowerCase()) {
+      case "beginner level":
+        return {
+          color: "success",
+          icon: "lucide:battery-low",
+          text: t("questions.level.beginner"),
+        };
+      case "intermediate level":
+        return {
+          color: "warning",
+          icon: "lucide:battery-medium",
+          text: t("questions.level.intermediate"),
+        };
+      case "advanced level":
+        return {
+          color: "danger",
+          icon: "lucide:battery-full",
+          text: t("questions.level.advanced"),
+        };
       default:
-        return 'text-default-500';
+        return { color: "default", icon: "lucide:battery", text: lvl };
     }
   };
 
-  const getDifficultyIcon = (level: string) => {
-    switch (level.toLowerCase()) {
-      case 'beginner level':
-        return 'lucide:battery-low'; // أو battery-eco
-      case 'intermediate level':
-        return 'lucide:battery-medium';
-      case 'advanced level':
-        return 'lucide:battery-full';
-      default:
-        return 'lucide:battery'; // أيقونة افتراضية
-    }
-  };
-
+  /* ---------- JSX ---------- */
   return (
-    <div className="space-y-4 py-4">
-      {questions.map((question, index) => {
-        const response = getQuestionResponse(question.id);
+    <div className="space-y-5 pt-4">
+      {questions.map((q, idx) => {
+        const resp = getResp(q.id);
+        const { color, icon, text } = levelMeta(q.level);
+
+        const border = !resp.answered
+          ? "border-default-200"
+          : resp.isCorrect
+          ? "border-success-500"
+          : "border-danger-500";
 
         return (
-          <Card key={question.id} className="shadow-sm">
-            <CardBody className="p-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                      {index + 1}
-                    </span>
-                    <h4 className="font-medium text-default-800">{question.text}</h4>
-                  </div>
-                  <div className="flex items-center gap-1 mt-2 text-xs">
-                    <Icon
-                      icon={getDifficultyIcon(question.level)}
-                      className={`${getDifficultyColor(question.level)}`}
-                    />
-                    <span className={`${getDifficultyColor(question.level)} font-medium`}>
-                      {question.level}
+          <Card
+            key={q.id}
+            className={`relative border-l-4 ${border} shadow-sm transition-colors`}
+          >
+            <CardBody className="p-5">
+              {/* العنوان وحالة المستوى */}
+              <div className="flex items-start gap-3">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  {idx + 1}
+                </span>
+
+                <div className="flex-1 space-y-2">
+                  <h4 className="font-medium text-default-900">{q.text}</h4>
+                  <div className="flex items-center gap-1 text-xs">
+                    <Icon icon={icon} className={`text-${color}-500`} />
+                    <span className={`text-${color}-600 font-semibold`}>
+                      {text}
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-end gap-2">
-                  <ButtonGroup size="sm">
+
+                {/* شارة إجابة صحيحة/خطأ */}
+                {resp.answered && (
+                  <Chip
+                    size="sm"
+                    color={resp.isCorrect ? "success" : "danger"}
+                    variant="flat"
+                  >
+                    {resp.isCorrect
+                      ? t("questions.correct")
+                      : t("questions.incorrect")}
+                  </Chip>
+                )}
+
+                {/* زر حذف السؤال (يظهر عند تمرير onDelete) */}
+                {onDelete && (
+                  <Tooltip content={t("questions.delete")}>
                     <Button
-                      color={response.answered && response.isCorrect === true ? "success" : "default"}
-                      variant={(response.answered && response.isCorrect === true) ? "solid" : "bordered"}
-                      onPress={() => onResponseChange(question.id, true, true)}
-                      isIconOnly={!response.answered || response.isCorrect !== true}
-                      startContent={<Icon icon="lucide:check" />}
-                      aria-label={t('questions.correct')}
+                      isIconOnly
+                      size="sm"
+                      color="danger"
+                      variant="light"
+                      onPress={() => onDelete(q.id)}
                     >
-                     {(response.answered && response.isCorrect === true) && t('questions.correct')}
+                      <Icon icon="lucide:trash-2" />
                     </Button>
+                  </Tooltip>
+                )}
+              </div>
+
+              {/* أزرار التقييم */}
+              <div className="mt-4 flex justify-end">
+                <ButtonGroup size="sm" className="gap-2">
+                  <Tooltip content={t("questions.correct")}>
                     <Button
-                      color={response.answered && response.isCorrect === false ? "danger" : "default"}
-                      variant={(response.answered && response.isCorrect === false) ? "solid" : "bordered"}
-                      onPress={() => onResponseChange(question.id, true, false)}
-                       isIconOnly={!response.answered || response.isCorrect !== false}
-                      startContent={<Icon icon="lucide:x" />}
-                      aria-label={t('questions.incorrect')}
+                      isIconOnly
+                      color={resp.isCorrect ? "success" : "default"}
+                      variant={resp.isCorrect ? "solid" : "bordered"}
+                      onPress={() => onResponseChange(q.id, true, true)}
+                      aria-label={t("questions.correct")}
                     >
-                      {(response.answered && response.isCorrect === false) && t('questions.incorrect')}
+                      <Icon icon="lucide:check" />
                     </Button>
+                  </Tooltip>
+
+                  <Tooltip content={t("questions.incorrect")}>
                     <Button
-                      color={!response.answered ? "default" : "default"}  
-                      variant={!response.answered ? "solid" : "bordered"}
-                      onPress={() => onResponseChange(question.id, false, undefined)}
-                      isIconOnly={response.answered}
-                      startContent={<Icon icon="lucide:minus" />}
-                      aria-label={t('questions.notAnswered')}
+                      isIconOnly
+                      color={
+                        resp.answered && resp.isCorrect === false
+                          ? "danger"
+                          : "default"
+                      }
+                      variant={
+                        resp.answered && resp.isCorrect === false
+                          ? "solid"
+                          : "bordered"
+                      }
+                      onPress={() => onResponseChange(q.id, true, false)}
+                      aria-label={t("questions.incorrect")}
                     >
-                     {!response.answered && t('questions.notAnswered')}
+                      <Icon icon="lucide:x" />
                     </Button>
-                  </ButtonGroup>
-                </div>
+                  </Tooltip>
+
+                  <Tooltip content={t("questions.notAnswered")}>
+                    <Button
+                      isIconOnly
+                      color={!resp.answered ? "warning" : "default"}
+                      variant={!resp.answered ? "solid" : "bordered"}
+                      onPress={() => onResponseChange(q.id, false, undefined)}
+                      aria-label={t("questions.notAnswered")}
+                    >
+                      <Icon icon="lucide:minus" />
+                    </Button>
+                  </Tooltip>
+                </ButtonGroup>
               </div>
             </CardBody>
           </Card>

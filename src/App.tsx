@@ -9,7 +9,7 @@ export default function App() {
     <I18nextProvider i18n={i18n}>
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 pt-24 pb-8">  
           <InterviewForm />
         </main>
       </div>

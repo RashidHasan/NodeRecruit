@@ -50,7 +50,8 @@
      "selectAll": "تحديد الكل",
     "clearAll": "إلغاء تحديد الكل",
     "selectedCount": "{{count}} / {{total}} محدد",
-    "unselectAll": "إلغاء تحديد الكل"
+    "unselectAll": "إلغاء تحديد الكل",
+    "delete": "حذف"
   },
   "addQuestion": {
     "title": "إضافة سؤال جديد",

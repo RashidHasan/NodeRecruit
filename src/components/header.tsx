@@ -17,7 +17,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-primary py-5 shadow-lg">
+   <header className="bg-primary py-5 shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           

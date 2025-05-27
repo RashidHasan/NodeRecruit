@@ -50,7 +50,8 @@
         "selectAll": "Select All",
     "clearAll": "Clear All",
     "selectedCount": "{{count}} / {{total}} selected",
-   "unselectAll": "Unselect All"
+   "unselectAll": "Unselect All",
+   "delete": "Delete"
  
   },
   "addQuestion": {

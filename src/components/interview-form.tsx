@@ -14,31 +14,27 @@ import {
   ModalBody,
   ModalFooter,
   Checkbox,
-  Textarea
+  Textarea,
 } from "@heroui/react";
 
 import { QuestionList } from "./question-list";
-import { QuestionSelectionList } from "./question-selection-list"; // ✅ النسخة المحدثة
+import { QuestionSelectionList } from "./question-selection-list";
 import { questionCategories } from "../data/questions";
 import { CandidateInfo } from "./candidate-info";
 import {
   CandidateType,
   QuestionResponseType,
   QuestionType,
-  InterviewerType
+  InterviewerType,
 } from "../types/interview";
 
 import { InterviewSummary } from "./interview-summary";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 
-/* -------------------------------------------------------------------- */
-/*                          InterviewForm Component                      */
-/* -------------------------------------------------------------------- */
 export const InterviewForm: React.FC = () => {
   const { t } = useTranslation();
 
-  /* ---------- الحالة ---------- */
   const [candidate, setCandidate] = React.useState<CandidateType>({
     name: "",
     position: "",
@@ -48,58 +44,88 @@ export const InterviewForm: React.FC = () => {
     time: new Date().toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: false
-    })
+      hour12: false,
+    }),
   });
 
   const [interviewer, setInterviewer] = React.useState<InterviewerType>({
     name: "",
-    position: ""
+    position: "",
   });
 
   const [responses, setResponses] = React.useState<QuestionResponseType[]>([]);
   const [showSummary, setShowSummary] = React.useState(false);
-  const [selectedQuestions, setSelectedQuestions] = React.useState<string[]>([]);
-  const [candidateImage, setCandidateImage] = React.useState<string | null>(null);
-  const [formStep, setFormStep] = React.useState<"info" | "questions" | "test">("info");
+  const [selectedQuestions, setSelectedQuestions] = React.useState<string[]>(
+    []
+  );
+  const [candidateImage, setCandidateImage] = React.useState<string | null>(
+    null
+  );
+  const [formStep, setFormStep] = React.useState<"info" | "questions" | "test">(
+    "info"
+  );
   const [isPdfExporting, setIsPdfExporting] = React.useState(false);
 
-  /* ----------- نوافذ منبثقة (إضافة سؤال / فئة) ---------- */
   const [showAddQuestionModal, setShowAddQuestionModal] = React.useState(false);
   const [newQuestion, setNewQuestion] = React.useState({
     text: "",
     level: "Beginner level",
-    category: ""
+    category: "",
   });
 
   const [showAddCategoryModal, setShowAddCategoryModal] = React.useState(false);
   const [newCategory, setNewCategory] = React.useState({ name: "", id: "" });
 
-  /* مرجع للتصدير إلى PDF */
   const summaryRef = React.useRef<HTMLDivElement>(null);
 
-  /* ---------- Handlers أساسية ---------- */
   const handleCandidateChange = (field: keyof CandidateType, v: string) =>
-    setCandidate(prev => ({ ...prev, [field]: v }));
+    setCandidate((prev) => ({ ...prev, [field]: v }));
 
   const handleInterviewerChange = (field: keyof InterviewerType, v: string) =>
-    setInterviewer(prev => ({ ...prev, [field]: v }));
+    setInterviewer((prev) => ({ ...prev, [field]: v }));
+
+  const handleDeleteQuestion = (id: string) => {
+    // إزالة من جميع التصنيفات
+    questionCategories.forEach((c) => {
+      const i = c.questions.findIndex((q) => q.id === id);
+      if (i >= 0) c.questions.splice(i, 1);
+    });
+    // إزالة من المختارة والردود
+    setSelectedQuestions((prev) => prev.filter((q) => q !== id));
+    setResponses((prev) => prev.filter((r) => r.questionId !== id));
+  };
+
+  const handleDeleteQuestionSelect = (id: string) => {
+    // إزالة السؤال من مصدر البيانات الأساسي (questionCategories أو state خاص)
+    questionCategories.forEach((c) => {
+      c.questions = c.questions.filter((q) => q.id !== id);
+    });
+    // تأكد من تحديث الاختيارات إذا كان السؤال محذوفاً
+    setSelectedQuestions((prev) => prev.filter((qId) => qId !== id));
+  };
 
   const handleResponseChange = (
     id: string,
     answered: boolean,
     isCorrect?: boolean
   ) =>
-    setResponses(prev => {
-      const idx = prev.findIndex(r => r.questionId === id);
-      const item = { questionId: id, answered, isCorrect: answered ? isCorrect : undefined };
-      return idx >= 0 ? prev.map((r, i) => (i === idx ? item : r)) : [...prev, item];
+    setResponses((prev) => {
+      const idx = prev.findIndex((r) => r.questionId === id);
+      const item = {
+        questionId: id,
+        answered,
+        isCorrect: answered ? isCorrect : undefined,
+      };
+      return idx >= 0
+        ? prev.map((r, i) => (i === idx ? item : r))
+        : [...prev, item];
     });
 
   const handleQuestionSelection = (id: string, sel: boolean) =>
-    setSelectedQuestions(prev => (sel ? [...prev, id] : prev.filter(x => x !== id)));
+    setSelectedQuestions((prev) =>
+      sel ? [...prev, id] : prev.filter((x) => x !== id)
+    );
 
-  /* ---------- خطوات النموذج ---------- */
   const validateInfoForm = () =>
     candidate.name.trim() !== "" && interviewer.name.trim() !== "";
 
@@ -113,12 +139,10 @@ export const InterviewForm: React.FC = () => {
     setShowSummary(true);
   };
 
-  /* ---------- تصدير PDF ---------- */
   const handleExportPDF = async () => {
     if (!summaryRef.current) return;
     setIsPdfExporting(true);
-    // انتظر لحظيًا حتى يطبَّق نمط التصدير
-    await new Promise(r => setTimeout(r, 100));
+    await new Promise((r) => setTimeout(r, 100));
 
     const { jsPDF } = await import("jspdf");
     const html2canvas = await import("html2canvas");
@@ -145,14 +169,13 @@ export const InterviewForm: React.FC = () => {
     setIsPdfExporting(false);
   };
 
-  /* ---------- إضافة سؤال وفئة ---------- */
   const handleAddQuestion = () => {
     if (!newQuestion.text || !newQuestion.category) return;
     const id = `custom-${Date.now()}`;
     const q: QuestionType = { id, ...newQuestion };
-    const idx = questionCategories.findIndex(c => c.id === q.category);
+    const idx = questionCategories.findIndex((c) => c.id === q.category);
     if (idx >= 0) questionCategories[idx].questions.push(q);
-    setSelectedQuestions(prev => [...prev, id]);
+    setSelectedQuestions((prev) => [...prev, id]);
     setNewQuestion({ text: "", level: "Beginner level", category: "" });
     setShowAddQuestionModal(false);
   };
@@ -164,38 +187,32 @@ export const InterviewForm: React.FC = () => {
     setShowAddCategoryModal(false);
   };
 
-  /* ---------- رفع صورة ---------- */
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = ev => setCandidateImage(ev.target?.result as string);
+    reader.onload = (ev) => setCandidateImage(ev.target?.result as string);
     reader.readAsDataURL(file);
   };
 
-  /* ---------- تصفية الفئات حسب الأسئلة المختارة ---------- */
   const filteredCategories = React.useMemo(() => {
     if (formStep !== "test") return questionCategories;
     return questionCategories
-      .map(c => ({
+      .map((c) => ({
         ...c,
-        questions: c.questions.filter(q => selectedQuestions.includes(q.id))
+        questions: c.questions.filter((q) => selectedQuestions.includes(q.id)),
       }))
-      .filter(c => c.questions.length);
+      .filter((c) => c.questions.length);
   }, [formStep, selectedQuestions]);
 
   const totalFilteredQuestions = filteredCategories.reduce(
     (sum, c) => sum + c.questions.length,
     0
   );
-  const answeredQuestions = responses.filter(r => r.answered).length;
+  const answeredQuestions = responses.filter((r) => r.answered).length;
 
-  /* ------------------------------------------------------------------ */
-  /*                             JSX                                    */
-  /* ------------------------------------------------------------------ */
   return (
     <div className="max-w-4xl mx-auto">
-      {/* -------------------- ملخص النتائج -------------------- */}
       {showSummary ? (
         <InterviewSummary
           ref={summaryRef}
@@ -210,14 +227,11 @@ export const InterviewForm: React.FC = () => {
           isPdfExporting={isPdfExporting}
         />
       ) : (
-        /* -------------------- نموذج المقابلة -------------------- */
         <Card className="shadow-md">
           <CardBody className="p-6">
-            {/* رأس الصفحة */}
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">{t("app.title")}</h2>
 
-              {/* أزرار خطوة اختيار الأسئلة */}
               {formStep === "questions" && (
                 <div className="flex gap-2">
                   <Button
@@ -258,7 +272,6 @@ export const InterviewForm: React.FC = () => {
                 </div>
               )}
 
-              {/* زر العودة من الاختبار إلى الأسئلة */}
               {formStep === "test" && (
                 <Button
                   color="primary"
@@ -271,7 +284,6 @@ export const InterviewForm: React.FC = () => {
               )}
             </div>
 
-            {/* -------------------- خطوة معلومات المرشح -------------------- */}
             {formStep === "info" && (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -285,7 +297,6 @@ export const InterviewForm: React.FC = () => {
                     />
                   </div>
 
-                  {/* صورة المرشح */}
                   <div className="flex flex-col items-center gap-4">
                     <div className="w-full aspect-square bg-default-100 rounded-lg overflow-hidden flex items-center justify-center">
                       {candidateImage ? (
@@ -303,7 +314,6 @@ export const InterviewForm: React.FC = () => {
                       )}
                     </div>
 
-                    {/* رفع / حذف الصورة */}
                     <label className="w-full">
                       <Button
                         fullWidth
@@ -336,7 +346,6 @@ export const InterviewForm: React.FC = () => {
                   </div>
                 </div>
 
-                {/* أزرار الاستمرار */}
                 <div className="mt-8 flex flex-col gap-4">
                   <div className="flex justify-end">
                     <Button
@@ -355,30 +364,28 @@ export const InterviewForm: React.FC = () => {
               </>
             )}
 
-            {/* -------------------- خطوة اختيار الأسئلة -------------------- */}
             {formStep === "questions" && (
               <QuestionSelectionList
                 categories={questionCategories}
                 selectedQuestions={selectedQuestions}
                 onQuestionSelection={handleQuestionSelection}
+                onDeleteQuestion={handleDeleteQuestion}
               />
             )}
 
-            {/* -------------------- خطوة الاختبار الفعلي -------------------- */}
             {formStep === "test" && (
               <form onSubmit={handleSubmitTest}>
                 <h3 className="text-xl font-semibold mb-4">
                   {t("questions.title")}
                 </h3>
 
-                {/* تبويبات الفئات */}
                 <Tabs
                   aria-label="Question Categories"
                   color="primary"
                   variant="underlined"
                   classNames={{ tabList: "gap-6", tab: "max-w-fit px-0 h-12" }}
                 >
-                  {filteredCategories.map(c => (
+                  {filteredCategories.map((c) => (
                     <Tab
                       key={c.id}
                       title={
@@ -394,12 +401,12 @@ export const InterviewForm: React.FC = () => {
                         questions={c.questions}
                         responses={responses}
                         onResponseChange={handleResponseChange}
+                        onDelete={handleDeleteQuestion}
                       />
                     </Tab>
                   ))}
                 </Tabs>
 
-                {/* شريط التقدّم وإرسال */}
                 <div className="mt-8 flex items-center justify-between">
                   <div>
                     <p className="text-default-600">
@@ -413,8 +420,9 @@ export const InterviewForm: React.FC = () => {
                         className="h-full bg-primary rounded-full"
                         style={{
                           width: `${
-                            (answeredQuestions / totalFilteredQuestions) * 100 || 0
-                          }%`
+                            (answeredQuestions / totalFilteredQuestions) *
+                              100 || 0
+                          }%`,
                         }}
                       />
                     </div>
@@ -429,14 +437,13 @@ export const InterviewForm: React.FC = () => {
         </Card>
       )}
 
-      {/* -------------------- نافذة إضافة سؤال -------------------- */}
       <Modal
         isOpen={showAddQuestionModal}
         onOpenChange={setShowAddQuestionModal}
         placement="center"
       >
         <ModalContent>
-          {onClose => (
+          {(onClose) => (
             <>
               <ModalHeader>{t("addQuestion.title")}</ModalHeader>
               <ModalBody>
@@ -444,7 +451,9 @@ export const InterviewForm: React.FC = () => {
                   label={t("addQuestion.text")}
                   placeholder={t("addQuestion.textPlaceholder")}
                   value={newQuestion.text}
-                  onValueChange={v => setNewQuestion(prev => ({ ...prev, text: v }))}
+                  onValueChange={(v) =>
+                    setNewQuestion((prev) => ({ ...prev, text: v }))
+                  }
                   minRows={3}
                   isRequired
                 />
@@ -453,7 +462,12 @@ export const InterviewForm: React.FC = () => {
                   <select
                     className="w-full p-2 border rounded-md"
                     value={newQuestion.level}
-                    onChange={e => setNewQuestion(prev => ({ ...prev, level: e.target.value }))}
+                    onChange={(e) =>
+                      setNewQuestion((prev) => ({
+                        ...prev,
+                        level: e.target.value,
+                      }))
+                    }
                   >
                     <option value="Beginner level">
                       {t("addQuestion.level.beginner")}
@@ -469,11 +483,16 @@ export const InterviewForm: React.FC = () => {
                   <select
                     className="w-full p-2 border rounded-md"
                     value={newQuestion.category}
-                    onChange={e => setNewQuestion(prev => ({ ...prev, category: e.target.value }))}
+                    onChange={(e) =>
+                      setNewQuestion((prev) => ({
+                        ...prev,
+                        category: e.target.value,
+                      }))
+                    }
                     required
                   >
                     <option value="">{t("addQuestion.category")}</option>
-                    {questionCategories.map(c => (
+                    {questionCategories.map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.name}
                       </option>
@@ -505,7 +524,7 @@ export const InterviewForm: React.FC = () => {
         placement="center"
       >
         <ModalContent>
-          {onClose => (
+          {(onClose) => (
             <>
               <ModalHeader>{t("addCategory.title")}</ModalHeader>
               <ModalBody>
@@ -513,10 +532,10 @@ export const InterviewForm: React.FC = () => {
                   label={t("addCategory.name")}
                   placeholder={t("addCategory.namePlaceholder")}
                   value={newCategory.name}
-                  onValueChange={v =>
+                  onValueChange={(v) =>
                     setNewCategory({
                       name: v,
-                      id: v.toLowerCase().replace(/\s+/g, "-")
+                      id: v.toLowerCase().replace(/\s+/g, "-"),
                     })
                   }
                   isRequired
@@ -525,7 +544,9 @@ export const InterviewForm: React.FC = () => {
                   label={t("addCategory.id")}
                   placeholder={t("addCategory.idPlaceholder")}
                   value={newCategory.id}
-                  onValueChange={v => setNewCategory(prev => ({ ...prev, id: v }))}
+                  onValueChange={(v) =>
+                    setNewCategory((prev) => ({ ...prev, id: v }))
+                  }
                   isRequired
                 />
                 <p className="text-xs text-default-500 mt-1">

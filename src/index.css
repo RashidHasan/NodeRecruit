@@ -24,3 +24,6 @@ html[dir="rtl"] .ml-2 {
   margin-left: 0;
   margin-right: 0.5rem;
 }
+
+.scrollbar-none::-webkit-scrollbar { display:none }
+.scrollbar-none { scrollbar-width:none; -ms-overflow-style:none }
