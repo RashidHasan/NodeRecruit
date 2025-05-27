@@ -31,7 +31,7 @@ export const Header = () => {
               />
             </div>
             <div className="leading-tight">
-              <h1 className="text-white text-2xl font-bold tracking-wide">MZN</h1>
+              <h1 className="text-white text-2xl font-bold tracking-wide">NodeSpark</h1>
               <p className="text-white/70 text-xs">Multi Zillion Nodes</p>
             </div>
           </div>
