@@ -1,0 +1,120 @@
+{
+  "app": {
+    "title": "نموذج المقابلة التقنية",
+    "selectQuestions": "تحديد الأسئلة",
+    "startTest": "بدء الاختبار",
+    "noQuestionsSelected": "الرجاء اختيار سؤال واحد على الأقل للبدء",
+    "addQuestion": "إضافة سؤال",
+    "addCategory": "إضافة فئة",
+    "cancel": "إلغاء",
+    "back": "رجوع",
+    "continue": "متابعة",
+    "backToQuestions": "العودة لتحديد الأسئلة",
+    "submit": "إرسال المقابلة",
+    "enterCandidateName": "الرجاء إدخال اسم المرشح قبل الإرسال.",
+    "enterRequiredInfo": "الرجاء إدخال اسم المرشح واسم القائم بالمقابلة للمتابعة."
+  },
+  "candidate": {
+    "info": "معلومات المرشح",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "أدخل اسم المرشح الكامل",
+    "position": "المنصب",
+    "positionPlaceholder": "أدخل المنصب المتقدم له",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل البريد الإلكتروني للمرشح",
+    "phone": "الهاتف",
+    "phonePlaceholder": "أدخل رقم هاتف المرشح",
+    "date": "تاريخ المقابلة",
+    "time": "وقت المقابلة",
+    "photo": "صورة المرشح",
+    "uploadPhoto": "رفع صورة",
+    "removePhoto": "إزالة الصورة"
+  },
+  "interviewer": {
+    "info": "معلومات القائم بالمقابلة",
+    "fullName": "اسم القائم بالمقابلة",
+    "fullNamePlaceholder": "أدخل اسم القائم بالمقابلة",
+    "position": "المنصب",
+    "positionPlaceholder": "أدخل منصب القائم بالمقابلة"
+  },
+  "questions": {
+    "title": "أسئلة المقابلة",
+    "selectionTitle": "تحديد الأسئلة للاختبار",
+    "selected": "محدد",
+    "answered": "الأسئلة المجابة",
+    "questionsAnswered": "أسئلة مجابة",
+    "correct": "صحيح",
+    "incorrect": "غير صحيح",
+    "noAnswer": "لا إجابة",
+    "notAnswered": "لم يُجب",
+     "selectAll": "تحديد الكل",
+    "clearAll": "إلغاء تحديد الكل",
+    "selectedCount": "{{count}} / {{total}} محدد",
+    "unselectAll": "إلغاء تحديد الكل"
+  },
+  "addQuestion": {
+    "title": "إضافة سؤال جديد",
+    "text": "نص السؤال",
+    "textPlaceholder": "اكتب السؤال هنا",
+    "level": {
+      "beginner": "مستوى مبتدئ",
+      "intermediate": "مستوى متوسط",
+      "advanced": "مستوى متقدم"
+    },
+    "category": "اختر الفئة",
+    "add": "إضافة السؤال"
+  },
+  "addCategory": {
+    "title": "إضافة فئة جديدة",
+    "name": "اسم الفئة",
+    "namePlaceholder": "أدخل اسم الفئة (مثال: أسئلة Vue)",
+    "id": "معرف الفئة",
+    "idPlaceholder": "أدخل معرف الفئة (مثال: vue)",
+    "idHelper": "يستخدم كمعرف فريد، أحرف صغيرة بدون مسافات",
+    "add": "إضافة الفئة"
+  },
+  "summary": {
+    "title": "ملخص المقابلة",
+    "backToForm": "العودة للنموذج",
+    "exportPDF": "تصدير PDF",
+    "candidateInfo": "معلومات المرشح",
+    "interviewerInfo": "معلومات القائم بالمقابلة",
+    "name": "الاسم",
+    "position": "المنصب",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "notSpecified": "غير محدد",
+    "results": "نتائج المقابلة",
+    "questionsAnswered": "الأسئلة المجابة",
+    "correctAnswers": "الإجابات الصحيحة",
+    "incorrectAnswers": "الإجابات الخاطئة",
+    "score": "النتيجة",
+    "performance": "الأداء",
+    "categories": "فئات الأسئلة",
+    "questionDetails": "تفاصيل الأسئلة المختارة",
+    "category": "التصنيف",
+    "answeredCorrect": "تمت الإجابة بشكل صحيح",
+    "answeredIncorrect": "تمت الإجابة بشكل خاطئ",
+      "answered": "جاوب عليه",
+       "correct": "صحيح",
+    "incorrect": "خطأ",
+    "notAnswered": "لم يُجب",
+    "questionsList": "قائمة الأسئلة",
+        "reportDate": "تاريخ التقرير",
+    "candidateName": "اسم المرشح",
+    "overallResults": "النتائج الإجمالية",
+    "performanceOverview": "نظرة عامة على الأداء",
+    "scoreAria": "النتيجة",
+    "categoriesBreakdown": "تفصيل حسب الفئات",
+    "allRightsReserved": "جميع الحقوق محفوظة."
+    
+  },
+  
+  "language": {
+    "select": "اللغة",
+    "en": "English",
+    "ar": "العربية"
+  }
+}
