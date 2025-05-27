@@ -46,13 +46,16 @@
     "correct": "Correct",
     "incorrect": "Incorrect",
     "noAnswer": "No Answer",
-      "notAnswered": "Not Answered",
-        "selectAll": "Select All",
+    "notAnswered": "Not Answered",
+    "selectAll": "Select All",
     "clearAll": "Clear All",
     "selectedCount": "{{count}} / {{total}} selected",
-   "unselectAll": "Unselect All",
-   "delete": "Delete"
- 
+    "unselectAll": "Unselect All",
+    "delete": "Delete",
+    "tab": {
+      "developers": "Developers",
+      "qa": "QA"
+    }
   },
   "addQuestion": {
     "title": "Add New Question",
@@ -95,16 +98,16 @@
     "score": "Score",
     "performance": "Performance",
     "categories": "Question Categories",
-     "questionDetails": "Selected Question Details",
+    "questionDetails": "Selected Question Details",
     "category": "Category",
     "answeredCorrect": "Answered correctly",
     "answeredIncorrect": "Answered incorrectly",
-      "answered": "Answered",
-       "correct": "صحيح",
+    "answered": "Answered",
+    "correct": "صحيح",
     "incorrect": "خطأ",
     "notAnswered": "لم يُجب",
     "questionsList": "قائمة الأسئلة",
-        "reportDate": "Report Date",
+    "reportDate": "Report Date",
     "candidateName": "Candidate Name",
     "overallResults": "Overall Results",
     "performanceOverview": "Performance Overview",

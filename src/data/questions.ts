@@ -9,99 +9,99 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "react-1",
         text: "What is React and why should I use it?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-2",
         text: "What is a component in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-3",
         text: "What is the difference between props and state in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-4",
         text: "What does the useState hook do in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-5",
         text: "What is useEffect and when should I use it in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-6",
         text: "What is JSX? Why do we use JSX instead of plain HTML in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-7",
         text: "What is the Virtual DOM in React?",
         level: "Intermediate Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-8",
         text: "How can I split a page into multiple components in React?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-9",
         text: "How can I store user data locally in a React application?",
         level: "Intermediate Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-10",
         text: "What is a React Router and what is it used for?",
         level: "Beginner level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-11",
         text: "What is the difference between controlled and uncontrolled components in React?",
         level: "Intermediate Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-12",
         text: "How do I handle data fetching using Fetch or Axios in React?",
         level: "Intermediate Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-13",
         text: "How can I perform real optimization in a React application?",
         level: "Advanced Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-14",
         text: "What are Suspense and Lazy Loading in React, and how do they work?",
         level: "Advanced Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-15",
         text: "What does re-render mean in React?",
         level: "Advanced Level",
-        category: "react"
+        category: "react",
       },
       {
         id: "react-16",
         text: "How can you prevent unnecessary re-renders in React?",
         level: "Advanced Level",
-        category: "react"
-      }
-    ]
+        category: "react",
+      },
+    ],
   },
   {
     id: "angular",
@@ -111,81 +111,81 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "angular-1",
         text: "What is Angular and what is it used for?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-2",
         text: "What is the difference between a Component and a Module in Angular?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-3",
         text: "What are the different types of data binding in Angular and how do they work?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-4",
         text: "What is a Directive in Angular and what is it used for?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-5",
         text: "How does routing work in Angular, and why do we use it?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-6",
         text: "How does routing work in Angular?",
         level: "Beginner level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-7",
         text: "What is a Service in Angular, and why should I use it?",
         level: "Intermediate Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-8",
         text: "What are Observables and RxJS in Angular, and why are they important?",
         level: "Intermediate Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-9",
         text: "What is HttpClient in Angular, and why do we use it?",
         level: "Intermediate Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-10",
         text: "What are the Lifecycle Hooks in Angular, and when do they get triggered?",
         level: "Advanced Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-11",
         text: "What is Change Detection in Angular, and how does it work?",
         level: "Advanced Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-12",
         text: "What is an Interceptor in Angular, and why do we use it?",
         level: "Advanced Level",
-        category: "angular"
+        category: "angular",
       },
       {
         id: "angular-13",
         text: "What is RouterLink in Angular, and what's the difference between it and a regular href?",
         level: "Beginner level",
-        category: "angular"
-      }
-    ]
+        category: "angular",
+      },
+    ],
   },
   {
     id: "typescript",
@@ -195,105 +195,105 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "ts-1",
         text: "What's the difference between let, const, and var in JavaScript?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-2",
         text: "What's the difference between == and ===, and why is === preferred?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-3",
         text: "What does hoisting mean in JavaScript?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-4",
         text: "What's the difference between a function declaration and a function expression in JavaScript?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-5",
         text: "What's the difference between synchronous and asynchronous code in JavaScript?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-6",
         text: "How do you use async/await in JavaScript? Can you give a simple example?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-7",
         text: "Why should I use TypeScript instead of plain JavaScript?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-8",
         text: "What's the difference between any, unknown, and never in TypeScript?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-9",
         text: "What's the difference between null and undefined in JavaScript?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-10",
         text: "What is JavaScript and why is it used?",
         level: "Beginner level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-11",
         text: "What is an enum in TypeScript and when do you use it?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-12",
         text: "What is an interface in TypeScript?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-13",
         text: "What is a Tuple in TypeScript?",
         level: "Intermediate Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-14",
         text: "What is a Proxy in JavaScript, and when should you use it?",
         level: "Advanced Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-15",
         text: "What's the difference between map and forEach in JavaScript?",
         level: "Advanced Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-16",
         text: "What is keyof and typeof in TypeScript, and how are they used?",
         level: "Advanced Level",
-        category: "typescript"
+        category: "typescript",
       },
       {
         id: "ts-17",
         text: "What's the difference between a shallow copy and a deep copy in JavaScript?",
         level: "Advanced Level",
-        category: "typescript"
-      }
-    ]
+        category: "typescript",
+      },
+    ],
   },
   {
     id: "oop",
@@ -303,141 +303,141 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "oop-1",
         text: "What does OOP (Object-Oriented Programming) mean?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-2",
         text: "What is a Class, and what is an Object in Object-Oriented Programming?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-3",
         text: "Why do we use Object-Oriented Programming (OOP)?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-4",
         text: "What is a property and what is a method inside an object in OOP?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-5",
         text: "What is a constructor in Object-Oriented Programming, and what is it used for?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-6",
         text: "What is Encapsulation in Object-Oriented Programming?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-7",
         text: "What is Inheritance in OOP?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-8",
         text: "What is Polymorphism in OOP?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-9",
         text: "What's the difference between a Class and an Interface in TypeScript?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-10",
         text: "What is SOLID in Object-Oriented Programming?",
         level: "Intermediate Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-11",
         text: "What is Method Overriding in OOP?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-12",
         text: "What is Method Overloading in OOP?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-13",
         text: "What's the difference between Inheritance and Composition?",
         level: "Advanced Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-14",
         text: "When should you use Inheritance vs Composition?",
         level: "Intermediate Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-15",
         text: "What is the Singleton Pattern in OOP?",
         level: "Advanced Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-16",
         text: "What is an abstract class and an abstract method?",
         level: "Intermediate Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-17",
         text: "What are Access Modifiers in OOP, and why do we use them?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-18",
         text: "What does static mean in a class (for properties or methods)?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-19",
         text: "What does super mean, and when is it used?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-20",
         text: "What does this refer to in a class or object?",
         level: "Beginner level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-21",
         text: "Why is an abstract class not the same as an interface?",
         level: "Advanced Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-22",
         text: "What is the Liskov Substitution Principle in OOP?",
         level: "Advanced Level",
-        category: "oop"
+        category: "oop",
       },
       {
         id: "oop-23",
         text: "What are Design Patterns, and why are they useful?",
         level: "Advanced Level",
-        category: "oop"
-      }
-    ]
+        category: "oop",
+      },
+    ],
   },
   {
     id: "datastructures",
@@ -447,201 +447,201 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "ds-1",
         text: "What is an array, and when should you use it?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-2",
         text: "What is a set, and how is it different from an array?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-3",
         text: "What is a map, and how is it used?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-4",
         text: "What is a stack, and where is it used?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-5",
         text: "What is a queue, and where is it used?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-6",
         text: "What is a linked list, and how is it different from an array?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-7",
         text: "What is a tree in data structures?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-8",
         text: "What is a graph, and what are its types?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-9",
         text: "What is Big-O notation, and why is it important?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-10",
         text: "What does O(1) mean?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-11",
         text: "What is time complexity in programming?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-12",
         text: "What does O(n) mean?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-13",
         text: "What's the difference between O(n) and O(n²)?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-14",
         text: "How do you calculate time complexity from a piece of code?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-15",
         text: "What's the difference between best, average, and worst case time complexity?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-16",
         text: "What are the best time complexities, ranked from best to worst?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-17",
         text: "What's the difference between linear search and binary search?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-18",
         text: "When should you use binary search?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-19",
         text: "What is the time complexity of binary search?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-20",
         text: "Does binary search work on any data?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-21",
         text: "Why do we need to sort data before binary search?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-22",
         text: "What's the difference between sorted and unsorted arrays?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-23",
         text: "How do you search for a value in an array?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-24",
         text: "If you have an unsorted array, which search method should you use?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-25",
         text: "Why do we sort data before searching?",
         level: "Intermediate Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-26",
         text: "What is sorting in programming?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-27",
         text: "What is searching in programming?",
         level: "Beginner level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-28",
         text: "What's the difference between bubble sort and merge sort?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-29",
         text: "If the data is almost sorted, which sorting algorithm should you choose?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-30",
         text: "If you have a very large dataset and limited memory, which sorting method is best?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-31",
         text: "In which case is bubble sort efficient?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-32",
         text: "If you have an array with duplicate elements, how can you find the most frequent one?",
         level: "Advanced Level",
-        category: "datastructures"
+        category: "datastructures",
       },
       {
         id: "ds-33",
         text: "If you have a list of 5 numbers and you're asked to print them all, how would you do it?",
         level: "Beginner level",
-        category: "datastructures"
-      }
-    ]
+        category: "datastructures",
+      },
+    ],
   },
   {
     id: "database",
@@ -651,188 +651,660 @@ export const questionCategories: QuestionCategoryType[] = [
         id: "db-1",
         text: "What is a database?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-2",
         text: "What is a table in a database?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-3",
         text: "What's the difference between a row and a column in a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-4",
         text: "What is a primary key?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-5",
         text: "What does SQL stand for?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-6",
         text: "What are the different types of SQL commands (DDL, DML, DCL, TCL)?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-7",
         text: "How do you create a new table in SQL?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-8",
         text: "How do you insert data into a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-9",
         text: "How do you retrieve data from a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-10",
         text: "How do you update existing data in a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-11",
         text: "How do you delete a record from a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-12",
         text: "What's the difference between DELETE and DROP?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-13",
         text: "What is a foreign key?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-14",
         text: "How do you link tables using foreign keys?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-15",
         text: "What are relationships in relational databases?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-16",
         text: "What's the difference between One-to-One and One-to-Many relationships?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-17",
         text: "Can a table have a relationship with itself (Self Join)?",
         level: "Advanced Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-18",
         text: "What is a JOIN in SQL and why do we use it?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-19",
         text: "What's the difference between INNER JOIN and LEFT JOIN?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-20",
         text: "What is the difference between WHERE and HAVING in SQL?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-21",
         text: "What is a UNIQUE constraint in SQL?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-22",
         text: "How do you get the number of records in a table?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-23",
         text: "How do you get the highest or lowest value in a column?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-24",
         text: "How do you sort query results?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-25",
         text: "How do you fetch only the first 5 results in SQL?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-26",
         text: "What is normalization in databases?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-27",
         text: "Why do we use indexes in SQL?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-28",
         text: "What's the difference between NULL and 0?",
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-29",
         text: "What's the difference between relational and NoSQL databases?",
         level: "Intermediate Level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-30",
-        text: "What does \"non-relational\" mean?",
+        text: 'What does "non-relational" mean?',
         level: "Beginner level",
-        category: "database"
+        category: "database",
       },
       {
         id: "db-31",
         text: "How are relationships stored in non-relational databases?",
         level: "Advanced Level",
-        category: "database"
-      }
-    ]
-  }
+        category: "database",
+      },
+    ],
+  },
+  {
+    id: "qa-manual",
+    name: "Basics of Manual Testing",
+    questions: [
+      {
+        id: "qa-manual-1",
+        text: "ما هو الـ Manual Testing ؟",
+        level: "Beginner level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-2",
+        text: "ما الفرق بين Manual Testing و  Automation Testing ؟",
+        level: "Beginner level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-3",
+        text: "ما هو الهدف الأساسي من اختبار البرمجيات ؟",
+        level: "Beginner level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-4",
+        text: "ما هي الـ Test Case ؟",
+        level: "Beginner level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-5",
+        text: "ما هو الـ Bug أو Defect ؟",
+        level: "Beginner level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-6",
+        text: "كيف تكتب Test Case صحيح ؟ ما هي الخطوات ؟",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-7",
+        text: "ما الفرق بين Test Case و  Test Scenario ؟",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-8",
+        text: "ما هي أنواع المستندات الأساسية التي يستخدمها مختبر الـ QA ؟",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-9",
+        text: "اشرح دورة حياة الـ Bug .",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-10",
+        text: "كيف تقوم بكتابة Test Case فعّال ؟ وما مكوناته الأساسية ؟",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-11",
+        text: "ما الفرق بين Functional Testing و Non-Functional Testing ؟",
+        level: "Intermediate Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-12",
+        text: "في حالة اختبار نظام بنكي ATM ، ما هي أهم الأمور التي تركز عليها ؟",
+        level: "Advanced Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-13",
+        text: "أنت تختبر موقعًا إلكترونيًا للتجارة الإلكترونية يحتوي على صفحة تسجيل دخول وعربة تسوق. ما هي الجوانب الأساسية التي تركز عليها في اختبارك؟ ولماذا؟",
+        level: "Advanced Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-14",
+        text: "أنت تختبر تطبيقًا للهاتف المحمول خاص بمواعيد الأطباء. ما الجوانب التي تركز عليها في هذا النوع من التطبيقات؟ وكيف تختلف عن اختبارات تطبيق ويب؟",
+        level: "Advanced Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-15",
+        text: "كيف تقرر أن الاختبارات الـ Manual كافية ولا داعي للـ Automation ؟",
+        level: "Advanced Level",
+        category: "qa-manual",
+      },
+      {
+        id: "qa-manual-16",
+        text: "كيف تضمن تغطية شاملة للمتطلبات في اختباراتك الـ Manual ؟",
+        level: "Advanced Level",
+        category: "qa-manual",
+      },
+    ],
+  },
+
+  /* ---------- Data Types ---------- */
+  {
+    id: "qa-datatypes",
+    name: "Data Types",
+    questions: [
+      {
+        id: "qa-dt-1",
+        text: "ما هي أنواع البيانات الأساسية في معظم لغات البرمجة ؟",
+        level: "Beginner level",
+        category: "qa-datatypes",
+      },
+      {
+        id: "qa-dt-2",
+        text: "ما الفرق بين النوع Integer و Float ؟",
+        level: "Beginner level",
+        category: "qa-datatypes",
+      },
+      {
+        id: "qa-dt-3",
+        text: "ما الفرق between Char و String ؟",
+        level: "Beginner level",
+        category: "qa-datatypes",
+      },
+      {
+        id: "qa-dt-4",
+        text: "ما هو الفرق بين float و double ؟",
+        level: "Beginner level",
+        category: "qa-datatypes",
+      },
+    ],
+  },
+
+  /* ---------- General (API Basics) ---------- */
+  {
+    id: "qa-general",
+    name: "General",
+    questions: [
+      {
+        id: "qa-gen-1",
+        text: "ما هو API ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-2",
+        text: "ما هو  API Testing ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-3",
+        text: "ما هي الـ  request methods المستخدمة في الـ API ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-4",
+        text: "ما هو الفرق ما بين الـ GET و الـ POST ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-5",
+        text: "أين ترسل البيانات في الـ GET ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-6",
+        text: "أين ترسل البيانات في الـ POST ؟",
+        level: "Beginner level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-7",
+        text: "ما هي الـ PUT و الـ PATCH ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-8",
+        text: "ما هي الـ DELETE ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-9",
+        text: "ما هي Status Codes في الـ HTTP ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-10",
+        text: "إذا كان وصف Status Codes 1xx فماذا تعني الحالة ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-11",
+        text: "إذا كان وصف Status Codes 2xx فماذا تعني الحالة ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-12",
+        text: "إذا كان وصف Status Codes 3xx فماذا تعني الحالة ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-13",
+        text: "إذا كان وصف Status Codes 4xx فماذا تعني الحالة ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-14",
+        text: "إذا كان وصف Status Codes 5xx فماذا تعني الحالة ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-15",
+        text: "ما هو REST API ؟ وما مميزاته ؟",
+        level: "Intermediate Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-16",
+        text: "سؤال عملي: هل يمكنك عمل اختبار على أكثر 3 APIs مرتبطين مع بعض؟ اشرح كيف تختبرهم وما المتوقع من كل واحد.",
+        level: "Advanced Level",
+        category: "qa-general",
+      },
+      {
+        id: "qa-gen-17",
+        text: "لنأخذ مثالاً: نظام حجز تذاكر طيران بثلاثة APIs (Search Flights / Book Flight / Confirm Payment) – كيف تختبر هذا التدفق؟",
+        level: "Advanced Level",
+        category: "qa-general",
+      },
+    ],
+  },
+
+  /* ---------- API Testing – From Request to Response ---------- */
+  {
+    id: "qa-api-testing",
+    name: "API Testing – From Request to Response",
+    questions: [
+      {
+        id: "api-1",
+        text: "لدينا API لإنشاء الفاتورة و API لإصدار دفعة مستحقة: صِف الـ Use Case الرئيسي واذكر أهم الـ Test Cases.",
+        level: "Advanced Level",
+        category: "qa-api-testing",
+      },
+      {
+        id: "api-2",
+        text: "في Postman، عند إرسال طلب: ما أنواع الـ Body المتاحة لإرسال البيانات؟",
+        level: "Intermediate Level",
+        category: "qa-api-testing",
+      },
+      {
+        id: "api-3",
+        text: "إذا كان لديك Base URL ثابت وتكرره في كل Request، كيف تختصر كتابته وتغييره حسب البيئة (dev / prod)؟",
+        level: "Intermediate Level",
+        category: "qa-api-testing",
+      },
+    ],
+  },
+
+  /* ---------- TCP Protocol – Reliable Data Transmission ---------- */
+  {
+    id: "qa-tcp-protocol",
+    name: "TCP Protocol – Reliable Data Transmission",
+    questions: [
+      {
+        id: "tcp-1",
+        text: "ما هو بروتوكول TCP ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-2",
+        text: "ما هو الفرق ما بين HTTP و HTTPS ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-3",
+        text: "على أي port يعمل HTTP ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-4",
+        text: "ما هي طبيعة المواقع التي تستخدم HTTP ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-5",
+        text: "على أي port يعمل HTTPS ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-6",
+        text: "ما هي طبيعة المواقع التي تستخدم HTTPS ؟",
+        level: "Beginner level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-7",
+        text: "من ناحية الأداء، أيهما أسرع HTTP أم HTTPS ؟",
+        level: "Intermediate Level",
+        category: "qa-tcp-protocol",
+      },
+      {
+        id: "tcp-8",
+        text: "إذا كان النظام يستخدم HTTPS ولكن هناك عناصر تُحمّل عبر HTTP، ماذا يحدث؟ وكيف تختبر ذلك؟",
+        level: "Advanced Level",
+        category: "qa-tcp-protocol",
+      },
+    ],
+  },
+
+  /* ---------- Cookies – Storage and Session Tracking ---------- */
+  {
+    id: "qa-cookies",
+    name: "Cookies – Storage and Session Tracking",
+    questions: [
+      {
+        id: "cookies-1",
+        text: "ما هي الـ Cookie ؟",
+        level: "Beginner level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-2",
+        text: "أين يتم تخزينها ؟",
+        level: "Beginner level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-3",
+        text: "هل هي محددة بحجم معين أم يمكن أن يكون حجمها كبيرًا ؟",
+        level: "Beginner level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-4",
+        text: "ما الفرق بين Cookie مؤقتة (Session) ودائمة (Persistent) ؟",
+        level: "Beginner level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-5",
+        text: "هل يمكن أن يحتوي ملف الـ Cookie على معلومات حساسة مثل كلمة المرور ؟",
+        level: "Intermediate Level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-6",
+        text: "ماذا يحدث إذا تم تغيير Cookie Session ID يدويًا في المتصفح ؟",
+        level: "Intermediate Level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-7",
+        text: "ما الفرق بين الكوكيز 1st party و 3rd party؟",
+        level: "Intermediate Level",
+        category: "qa-cookies",
+      },
+      {
+        id: "cookies-8",
+        text: "في حالة اختبار نظام تسجيل دخول يعتمد على الكوكيز، ما هي الأمور التي تتحقق منها؟",
+        level: "Advanced Level",
+        category: "qa-cookies",
+      },
+    ],
+  },
+  {
+    id: "qa-auth",
+    name: "Authentication & Authorization",
+    questions: [
+      {
+        id: "qa-auth-1",
+        text: "كيف أعرف أن الطلب مُصَرَّح له (Authorized) أو غير مصَرَّح؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-2",
+        text: "ما الفرق بين رسالتي HTTP 401 Unauthorized و HTTP 403 Forbidden؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-3",
+        text: "ما الفرق بين Authentication و Authorization؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-4",
+        text: "ما هو الـ Token؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-5",
+        text: "ما هو Token في الـ API؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-6",
+        text: "ما هو API Key؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-7",
+        text: "ما الفرق بين Token و API Key؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-8",
+        text: "أين نضع الـ Token أو الـ API Key عند اختبار API؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-9",
+        text: "ماذا يحدث إذا أرسلت طلبًا بدون Token؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-10",
+        text: "كيف تختبر صلاحية Token منتهٍ؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-11",
+        text: "كيف تختبر أن الصلاحيات (Authorization) تعمل؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-12",
+        text: "كيف تتأكد من أمان الـ API أثناء استخدام Token؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-13",
+        text: "ما هو Refresh Token؟ ولماذا يُستخدم؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+      {
+        id: "qa-auth-14",
+        text: "هل يمكن استخدام API Key بدلًا من Token؟",
+        level: "Intermediate Level",
+        category: "qa-auth",
+      },
+    ],
+  },
 ];

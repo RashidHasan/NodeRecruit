@@ -31,7 +31,9 @@ import {
 } from "../types/interview";
 import { questionCategories as defaultCategories } from "../data/questions";
 
-const STORAGE_KEY = "nodeRecruit_state_v1";
+const STORAGE_KEY = "nodeRecruit_state_v5";
+localStorage.removeItem('nodeRecruit_state_v4');
+
 
 interface Category {
   id: string;

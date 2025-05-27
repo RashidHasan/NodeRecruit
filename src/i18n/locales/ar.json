@@ -51,7 +51,11 @@
     "clearAll": "إلغاء تحديد الكل",
     "selectedCount": "{{count}} / {{total}} محدد",
     "unselectAll": "إلغاء تحديد الكل",
-    "delete": "حذف"
+    "delete": "حذف",
+    "tab": {
+      "developers": "أسئلة المطورين",
+      "qa": "أسئلة الـ QA"
+    }
   },
   "addQuestion": {
     "title": "إضافة سؤال جديد",

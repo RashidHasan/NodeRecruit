@@ -1,10 +1,16 @@
 import React from "react";
-import { Checkbox, Button, Alert, Tooltip } from "@heroui/react";
+import {
+  Checkbox,
+  Button,
+  ButtonGroup,
+  Alert,
+  Tooltip,
+  Tabs,
+  Tab,
+} from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import { QuestionType } from "../types/interview";
-
- 
 
 export interface QuestionSelectionListProps {
   categories: {
@@ -14,64 +20,87 @@ export interface QuestionSelectionListProps {
   }[];
   selectedQuestions: string[];
   onQuestionSelection: (questionId: string, isSelected: boolean) => void;
-   onDeleteQuestion?: (questionId: string) => void;
+  onDeleteQuestion?: (questionId: string) => void;
 }
 
 export const QuestionSelectionList: React.FC<QuestionSelectionListProps> = ({
   categories,
   selectedQuestions,
   onQuestionSelection,
-  onDeleteQuestion
+  onDeleteQuestion,
 }) => {
   const { t } = useTranslation();
 
- 
-   const areAllSelected = (arr: string[]) =>
-    arr.every(id => selectedQuestions.includes(id));
+   const devCategories = React.useMemo(
+    () => categories.filter((c) => !c.id.startsWith("qa-")),
+    [categories]
+  );
+  const qaCategories = React.useMemo(
+    () => categories.filter((c) => c.id.startsWith("qa-")),
+    [categories]
+  );
 
-   const handleSelectAllInCategory = (catId: string, sel: boolean) => {
-    const cat = categories.find(c => c.id === catId);
+  type TabKey = "dev" | "qa";
+  const [activeTab, setActiveTab] = React.useState<TabKey>("dev");
+
+  const currentCategories = activeTab === "dev" ? devCategories : qaCategories;
+
+   const areAllSelected = (ids: string[]) =>
+    ids.every((id) => selectedQuestions.includes(id));
+
+  const handleSelectAllInCategory = (catId: string, sel: boolean) => {
+    const cat = currentCategories.find((c) => c.id === catId);
     if (!cat) return;
 
-    const ids = cat.questions.map(q => q.id);
+    const ids = cat.questions.map((q) => q.id);
 
     if (sel) {
-       ids
-        .filter(id => !selectedQuestions.includes(id))
-        .forEach(id => onQuestionSelection(id, true));
+      ids
+        .filter((id) => !selectedQuestions.includes(id))
+        .forEach((id) => onQuestionSelection(id, true));
     } else {
-       ids
-        .filter(id => selectedQuestions.includes(id))
-        .forEach(id => onQuestionSelection(id, false));
+      ids
+        .filter((id) => selectedQuestions.includes(id))
+        .forEach((id) => onQuestionSelection(id, false));
     }
   };
 
-   const toggleSelectAll = () => {
-    const allIds = categories.flatMap(c => c.questions.map(q => q.id));
+  const toggleSelectAll = () => {
+    const allIds = currentCategories.flatMap((c) => c.questions.map((q) => q.id));
     const allSel = areAllSelected(allIds);
 
     if (allSel) {
-       selectedQuestions.forEach(id => onQuestionSelection(id, false));
+      selectedQuestions.forEach((id) => onQuestionSelection(id, false));
     } else {
-       allIds
-        .filter(id => !selectedQuestions.includes(id))
-        .forEach(id => onQuestionSelection(id, true));
+      allIds
+        .filter((id) => !selectedQuestions.includes(id))
+        .forEach((id) => onQuestionSelection(id, true));
     }
   };
 
    return (
     <div className="space-y-6">
        {selectedQuestions.length === 0 && (
-        <Alert color="warning" className="mb-4">
+        <Alert color="warning">
           <div className="flex items-center gap-2">
-            <Icon icon="lucide:alert-circle" className="text-lg" />
+            <Icon icon="lucide:alert-circle" />
             <span>{t("app.noQuestionsSelected")}</span>
           </div>
         </Alert>
       )}
 
-       {categories.length > 0 && (
-        <div className="flex justify-end mb-2">
+       <Tabs
+        selectedKey={activeTab}
+        onSelectionChange={(key) => setActiveTab(key as TabKey)}
+        color="primary"
+        variant="bordered"
+      >
+        <Tab key="dev" title={t("questions.tab.developers")} />
+        <Tab key="qa" title={t("questions.tab.qa")} />
+      </Tabs>
+
+       {currentCategories.length > 0 && (
+        <div className="flex justify-end">
           <Button
             size="sm"
             variant="flat"
@@ -79,26 +108,32 @@ export const QuestionSelectionList: React.FC<QuestionSelectionListProps> = ({
             onPress={toggleSelectAll}
             startContent={<Icon icon="lucide:check-square" />}
           >
-            {areAllSelected(categories.flatMap(c => c.questions.map(q => q.id)))
+            {areAllSelected(
+              currentCategories.flatMap((c) => c.questions.map((q) => q.id))
+            )
               ? t("questions.unselectAll")
               : t("questions.selectAll")}
           </Button>
         </div>
       )}
 
-       {categories.map(cat => {
-        const ids = cat.questions.map(q => q.id);
+       {currentCategories.map((cat) => {
+        const ids = cat.questions.map((q) => q.id);
         const allSel = areAllSelected(ids);
-        const someSel = !allSel && ids.some(id => selectedQuestions.includes(id));
+        const someSel =
+          !allSel && ids.some((id) => selectedQuestions.includes(id));
 
         return (
-          <div key={cat.id} className="border border-default-200 rounded-lg p-4">
-             <div className="flex justify-between items-center mb-4">
+          <div
+            key={cat.id}
+            className="border border-default-200 rounded-lg p-4 space-y-3"
+          >
+             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Checkbox
                   isSelected={allSel}
                   isIndeterminate={someSel}
-                  onValueChange={sel => handleSelectAllInCategory(cat.id, sel)}
+                  onValueChange={(sel) => handleSelectAllInCategory(cat.id, sel)}
                   size="md"
                   color="primary"
                 />
@@ -106,29 +141,29 @@ export const QuestionSelectionList: React.FC<QuestionSelectionListProps> = ({
               </div>
               <span className="text-sm text-default-500">
                 {t("questions.selectedCount", {
-                  count: ids.filter(id => selectedQuestions.includes(id)).length,
-                  total: ids.length
+                  count: ids.filter((id) => selectedQuestions.includes(id)).length,
+                  total: ids.length,
                 })}
               </span>
             </div>
 
              <div className="space-y-2">
-              {cat.questions.map(q => {
-                const levelColor =
-                  q.level.toLowerCase().includes("beginner")
-                    ? "text-success-500"
-                    : q.level.toLowerCase().includes("intermediate")
-                    ? "text-warning-500"
-                    : "text-danger-500";
+              {cat.questions.map((q) => {
+                const lvl = q.level.toLowerCase();
+                const levelColor = lvl.includes("beginner")
+                  ? "text-success-500"
+                  : lvl.includes("intermediate")
+                  ? "text-warning-500"
+                  : "text-danger-500";
 
                 return (
                   <div
                     key={q.id}
                     className="flex items-center justify-between gap-2 p-2 hover:bg-default-50 rounded-md"
                   >
-                     <Checkbox
+                    <Checkbox
                       isSelected={selectedQuestions.includes(q.id)}
-                      onValueChange={sel => onQuestionSelection(q.id, sel)}
+                      onValueChange={(sel) => onQuestionSelection(q.id, sel)}
                       size="md"
                       color="primary"
                     >
@@ -138,7 +173,7 @@ export const QuestionSelectionList: React.FC<QuestionSelectionListProps> = ({
                       </div>
                     </Checkbox>
 
-                     {onDeleteQuestion && (
+                    {onDeleteQuestion && (
                       <Tooltip content={t("questions.delete")}>
                         <Button
                           isIconOnly
