@@ -55,6 +55,11 @@
     "tab": {
       "developers": "Developers",
       "qa": "QA"
+    },
+    "level": {
+      "beginner": "Beginner Level",
+      "intermediate": "Intermediate Level",
+      "advanced": "Advanced Level"
     }
   },
   "addQuestion": {

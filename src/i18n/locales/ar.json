@@ -55,6 +55,11 @@
     "tab": {
       "developers": "أسئلة المطورين",
       "qa": "أسئلة الـ QA"
+    },
+       "level": {
+      "beginner": "مستوى مبتدئ",
+      "intermediate": "مستوى متوسط",
+      "advanced": "مستوى متقدم"
     }
   },
   "addQuestion": {
